@@ -1,4 +1,8 @@
 AllCops:
+  Exclude:
+    - 'db/schema.rb'
+    - bin/**
+
   DisplayCopNames: true
 
 # https://github.com/mynewsdesk/mynewsdesk/pull/3197
@@ -15,25 +19,9 @@ Layout/ExtraSpacing:
 Layout/MultilineMethodCallIndentation:
   EnforcedStyle: indented
 
-# https://github.com/mynewsdesk/mynewsdesk/pull/3058
-Metrics/AbcSize:
-  Enabled: false
-Metrics/BlockLength:
-  Enabled: false
-Metrics/MethodLength:
-  Enabled: false
-
 # https://github.com/mynewsdesk/mynewsdesk/pull/3205
 Metrics/LineLength:
   Max: 128
-Metrics/ClassLength:
-  Enabled: false
-Metrics/ModuleLength:
-  Enabled: false
-Metrics/CyclomaticComplexity:
-  Enabled: false
-Metrics/PerceivedComplexity:
-  Enabled: false
 
 # https://github.com/mynewsdesk/mynewsdesk/pull/3520
 Style/GuardClause:
@@ -53,6 +41,3 @@ Style/FrozenStringLiteralComment:
 
 Style/Documentation:
   Enabled: false
-
-Style/ClassAndModuleChildren:
-  EnforcedStyle: compact
