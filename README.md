@@ -39,3 +39,11 @@ inherit_gem:
 That takes care of inheriting from the base `.rubocop.yml` contained in this gem.
 
 Follow/Override any other value as you would normally do in your local `.rubocop.yml` file.
+
+Or, to have just the same rules as Prime in your application, use the Prime config file:
+
+```yaml
+#.rubocop.yml
+inherit_gem:
+  mnd-rubocop: .rubocop-prime.yml
+```
