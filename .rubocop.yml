@@ -1,7 +1,9 @@
 AllCops:
-  Exclude:
-    - 'db/schema.rb'
-    - bin/**
+# Exclude/Include params should lie in the including .rubocop file
+# Ref. http://rubocop.readthedocs.io/en/latest/configuration/#inheritance
+#  Exclude:
+#    - 'db/schema.rb'
+#    - bin/**
 
   DisplayCopNames: true
 
