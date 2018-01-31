@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.description = ""
   spec.authors       = ["Mynewsdesk"]
   spec.email         = ["dev@mynewsdesk.com"]
-  spec.files       = [".rubocop.yml", ".rubocop-prime.yml"]
+  spec.files       = [".rubocop.yml"]
   spec.homepage    = "https://www.mynewsdesk.com"
   spec.license       = "MIT"
   spec.add_runtime_dependency "rubocop", "~> 0"
