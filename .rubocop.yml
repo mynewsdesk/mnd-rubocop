@@ -32,7 +32,12 @@ Style/GuardClause:
 Style/StringLiterals:
   EnforcedStyle: double_quotes
 
-Style/TrailingCommaInLiteral:
+# https://github.com/mynewsdesk/mnd-rubocop/pull/1
+# (change TrailingCommaInLiteral to TrailingCommaInArrayLiteral & TrailingCommaInHashLiteral)
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInHashLiteral:
   EnforcedStyleForMultiline: comma
 
 Style/TrailingCommaInArguments:
