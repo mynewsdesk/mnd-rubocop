@@ -29,6 +29,10 @@ Metrics/LineLength:
 Style/GuardClause:
   Enabled: false
 
+# https://github.com/mynewsdesk/mnd-rubocop/pull/3
+Style/IfUnlessModifier:
+  Enabled: false
+
 Style/StringLiterals:
   EnforcedStyle: double_quotes
 
