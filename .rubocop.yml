@@ -1,10 +1,11 @@
 AllCops:
-# Exclude/Include params should lie in the including .rubocop file
-# Ref. http://rubocop.readthedocs.io/en/latest/configuration/#inheritance
-#  Exclude:
-#    - 'db/schema.rb'
-#    - bin/**
-
+  # Exclude automatically generated rails files for easier app:update's etc
+  Exclude:
+    - bin/*
+    - db/schema.rb
+    - config/boot.rb
+    - config/environments/*
+    - vendor/**/*
   DisplayCopNames: true
 
 # https://github.com/mynewsdesk/mynewsdesk/pull/3197
