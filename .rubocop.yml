@@ -4,6 +4,7 @@ AllCops:
     - bin/*
     - db/schema.rb
     - config/boot.rb
+    - config/environment.rb
     - config/environments/*
     - vendor/**/*
   DisplayCopNames: true
