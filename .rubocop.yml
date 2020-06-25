@@ -26,6 +26,7 @@ Layout/MultilineMethodCallIndentation:
 # https://github.com/mynewsdesk/mynewsdesk/pull/3205
 Metrics/LineLength:
   Max: 128
+  AllowURI: true # https://github.com/mynewsdesk/mnd-rubocop/pull/6
 
 # https://github.com/mynewsdesk/mynewsdesk/pull/3520
 Style/GuardClause:
