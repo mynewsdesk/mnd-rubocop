@@ -1,2 +1,7 @@
 ruby:
   config_file: .rubocop.yml
+  version: 1.22.1
+eslint:
+  enabled: false
+jshint:
+  enabled: false

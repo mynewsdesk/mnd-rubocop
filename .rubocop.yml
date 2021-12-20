@@ -6,11 +6,15 @@ AllCops:
     - config/boot.rb
     - config/environment.rb
     - config/environments/*
+    - config/initializers/filter_parameter_logging.rb
+    - config/initializers/session_store.rb
+    - config/locales/plurals.rb # usually cargo culted from svenfuchs and full of violations
     - vendor/**/*
   DisplayCopNames: true
+  NewCops: disable
 
 # https://github.com/mynewsdesk/mynewsdesk/pull/3197
-Layout/AlignParameters:
+Layout/ParameterAlignment:
   EnforcedStyle: with_fixed_indentation
 
 # https://github.com/mynewsdesk/mynewsdesk/pull/3041
@@ -24,9 +28,8 @@ Layout/MultilineMethodCallIndentation:
   EnforcedStyle: indented
 
 # https://github.com/mynewsdesk/mynewsdesk/pull/3205
-Metrics/LineLength:
+Layout/LineLength:
   Max: 128
-  AllowURI: true # https://github.com/mynewsdesk/mnd-rubocop/pull/6
 
 # https://github.com/mynewsdesk/mynewsdesk/pull/3520
 Style/GuardClause:
@@ -36,25 +39,71 @@ Style/GuardClause:
 Style/IfUnlessModifier:
   Enabled: false
 
+# More consistency and less micro-management
 Style/StringLiterals:
   EnforcedStyle: double_quotes
 
 # https://github.com/mynewsdesk/mnd-rubocop/pull/2
-# (change TrailingCommaInLiteral to TrailingCommaInArrayLiteral & TrailingCommaInHashLiteral)
 Style/TrailingCommaInArrayLiteral:
   EnforcedStyleForMultiline: comma
-
 Style/TrailingCommaInHashLiteral:
   EnforcedStyleForMultiline: comma
-
 Style/TrailingCommaInArguments:
   EnforcedStyleForMultiline: comma
 
+# Too noisy
 Style/FrozenStringLiteralComment:
   Enabled: false
 
+# Maybe a good idea but too many violations + would result in tons of :nodoc: noise
 Style/Documentation:
   Enabled: false
 
+# !!variable is more obvious than !variable.nil?
 Style/DoubleNegation:
+  Enabled: false
+
+# We have a lot of variables looking like eg. foo_bar_2019, this cop would
+# want that to be foo_bar2019 which is worse in many cases.
+Naming/VariableNumber:
+  Enabled: false
+
+# Makes it less likely for rubocop autocorrect to mess up alignment (but it still will)
+Layout/ArgumentAlignment:
+  EnforcedStyle: with_fixed_indentation
+
+# .positive? doesn't seem easier to read than > 0 for most cases
+Style/NumericPredicate:
+  Enabled: false
+
+# Human code review does a better job of determining if number of arguments make sense or not
+Metrics/ParameterLists:
+  Enabled: false
+
+# Specs should catch bugs related to not calling super
+Lint/MissingSuper:
+  Enabled: false
+
+# If the code works as intended it's not ambiguous
+Lint/AmbiguousBlockAssociation:
+  Enabled: false
+
+# Since it only applies when there are exactly one child it seems ambiguous
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+# https://github.com/mynewsdesk/mynewsdesk/pull/3058 (+ a few more with the same reasoning)
+Metrics/AbcSize:
+  Enabled: false
+Metrics/BlockLength:
+  Enabled: false
+Metrics/MethodLength:
+  Enabled: false
+Metrics/ClassLength:
+  Enabled: false
+Metrics/ModuleLength:
+  Enabled: false
+Metrics/CyclomaticComplexity:
+  Enabled: false
+Metrics/PerceivedComplexity:
   Enabled: false
