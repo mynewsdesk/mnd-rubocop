@@ -1,0 +1,111 @@
+# rubocop
+
+# https://github.com/mynewsdesk/mynewsdesk/pull/3197
+Layout/ParameterAlignment:
+  EnforcedStyle: with_fixed_indentation
+
+# https://github.com/mynewsdesk/mynewsdesk/pull/3041
+# https://github.com/mynewsdesk/mynewsdesk/pull/3260 (change Style/ to Layout/)
+Layout/ExtraSpacing:
+  AllowForAlignment: false
+
+# https://github.com/mynewsdesk/mynewsdesk/pull/3065
+# https://github.com/mynewsdesk/mynewsdesk/pull/3260 (change Style/ to Layout/)
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+# https://github.com/mynewsdesk/mynewsdesk/pull/3205
+Layout/LineLength:
+  Max: 128
+  AllowURI: true # https://github.com/mynewsdesk/mnd-rubocop/pull/6
+
+# https://github.com/mynewsdesk/mynewsdesk/pull/3520
+Style/GuardClause: { Enabled: false }
+
+# https://github.com/mynewsdesk/mynewsdesk/pull/13739
+Style/NumericLiterals: { Enabled: false }
+
+# https://github.com/mynewsdesk/mnd-rubocop/pull/3
+Style/IfUnlessModifier: { Enabled: false }
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+# https://github.com/mynewsdesk/mnd-rubocop/pull/2
+# (change TrailingCommaInLiteral to TrailingCommaInArrayLiteral & TrailingCommaInHashLiteral)
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInArguments:
+  EnforcedStyleForMultiline: comma
+
+Style/FrozenStringLiteralComment: { Enabled: false }
+
+Style/Documentation: { Enabled: false }
+
+Style/DoubleNegation: { Enabled: false }
+
+# We have a lot of variables looking like eg. foo_bar_2019, this cop would
+# want that to be foo_bar2019 which is worse in many cases.
+Naming/VariableNumber: { Enabled: false }
+
+Layout/ArgumentAlignment:
+  EnforcedStyle: with_fixed_indentation
+
+# Mostly good but sometimes multiline { } blocks are necessary
+Style/BlockDelimiters: { Enabled: false }
+
+# .positive? doesn't seem easier to read than > 0 for most cases
+Style/NumericPredicate: { Enabled: false }
+
+# Human code review does a better job of determining if number of arguments make sense or not
+Metrics/ParameterLists: { Enabled: false }
+
+# Specs should catch bugs related to not calling super
+Lint/MissingSuper: { Enabled: false }
+
+# If the code works as intended it's not ambiguous
+Lint/AmbiguousBlockAssociation: { Enabled: false }
+
+# No idea how this would "do the opposite of what the author intends" as stated in the docs
+Lint/SafeNavigationWithEmpty: { Enabled: false }
+
+# https://github.com/mynewsdesk/mynewsdesk/pull/3058
+Metrics/AbcSize: { Enabled: false }
+Metrics/BlockLength: { Enabled: false }
+Metrics/MethodLength: { Enabled: false }
+Metrics/ClassLength: { Enabled: false }
+Metrics/ModuleLength: { Enabled: false }
+Metrics/CyclomaticComplexity: { Enabled: false }
+Metrics/PerceivedComplexity: { Enabled: false }
+Style/ClassAndModuleChildren: { Enabled: false }
+
+# More parenthesis noise doesn't necessarily make ranges easier to read
+Lint/AmbiguousRange: { Enabled: false }
+
+# While using .fetch is often a good idea, using .fetch("XXX", nil) seems worse than ["XXX"]
+Style/FetchEnvVar: { Enabled: false }
+
+# We have a lot of these in our codebase, could be a good idea to enable
+Style/OpenStructUse: { Enabled: false }
+
+# Uninteresting / rare cop with broken autocomplete
+Style/AccessModifierDeclarations: { Enabled: false }
+
+# Circumstantial: ruby code is more flexible than static data files
+Metrics/CollectionLiteralLength: { Enabled: false }
+
+# Feels weird to allocate Array's for simple conditional statements
+Style/MultipleComparison: { Enabled: false }
+
+# Putting constants under private is done for readability, not encapsulation
+Lint/UselessConstantScoping: { Enabled: false }
+
+# Seems reasonable but can't be autofixed, could consider manually enforcing
+Style/SafeNavigationChainLength: { Enabled: false }
+
+# Why make this particular method invocation different from others?
+Style/SuperWithArgsParentheses: { Enabled: false }
