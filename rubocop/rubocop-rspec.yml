@@ -1,0 +1,68 @@
+# rubocop-rspec
+
+# Excluding rswag specs due to incompatibility and requests specs where describing URLs / paths is common
+RSpec/DescribeClass: { Exclude: ["spec/api/**/*", "spec/requests/**/*"] }
+
+# Filepaths tends to not follow conventions for rswag / system and graphql specs
+RSpec/SpecFilePathFormat: { Exclude: ["spec/api/**/*", "spec/system/**/*", "spec/graphql/**/*"] }
+
+# It's apparently common to use let(:subject) in mailers
+RSpec/SubjectDeclaration: { Exclude: ["spec/mailers/**/*"] }
+
+# Excluding rswag specs due to incompatibility
+RSpec/EmptyExampleGroup: { Exclude: ["spec/api/**/*"] }
+RSpec/ScatteredSetup: { Exclude: ["spec/api/**/*"] }
+RSpec/VariableDefinition: { Exclude: ["spec/api/**/*"] }
+RSpec/VariableName: { Exclude: ["spec/api/**/*"] }
+
+# Though it's true that mocking any instance is more brittle the alternative gets extremely painful at times
+RSpec/AnyInstance: { Enabled: false }
+
+# Can be useful for extremely long class names inside of namespaces but otherwise just adds indirection
+RSpec/DescribedClass: { Enabled: false }
+
+# Turns out human beings are good at reading stuff line by line, more so than jumping around abstractions
+RSpec/ExampleLength: { Enabled: false }
+
+# Often good advise but would incentivize using allow over expect when setting up mocks which is less robust
+RSpec/ExpectInHook: { Enabled: false }
+
+# Would unnecessarily bloat a large number of specs with additional mock boilerplate
+RSpec/MessageSpies: { Enabled: false }
+RSpec/StubbedMock: { Enabled: false }
+RSpec/MessageExpectation: { Enabled: false }
+
+# Multiple expectations per spec can read just fine and can be great for performance
+RSpec/MultipleExpectations: { Enabled: false }
+
+# Arbitrary restriction, lots of specs need a lot of data setup and no good alternative is provided
+RSpec/MultipleMemoizedHelpers: { Enabled: false }
+
+# It's good if we can keep nesting low but is it truly helpful to force a restriction for it?
+RSpec/NestedGroups: { Enabled: false }
+
+# Most of the time makes expectations more obscure
+RSpec/PredicateMatcher: { Enabled: false }
+
+# Shakespeare!
+RSpec/Be: { Enabled: false }
+
+# Numbered lets are fine
+RSpec/IndexedLet: { Enabled: false }
+
+# Unclear motivation for this cop
+RSpec/MatchArray: { Enabled: false }
+
+# Pending:
+
+# Great idea to avoid legacy vibes in the specs but ~1500 violation
+RSpec/InstanceVariable: { Enabled: false }
+
+# Probably good idea, ~175 violations
+RSpec/LetSetup: { Enabled: false }
+
+# Probably a good idea to avoid stubbing in general, ~59 violations
+RSpec/SubjectStub: { Enabled: false }
+
+# TODO: revisit this, seems good but will take time
+RSpec/NoExpectationExample: { Enabled: false }

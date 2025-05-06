@@ -1,0 +1,7 @@
+# rubocop-rspec_rails
+
+# Disabled to mirror rubocop-rails configuration
+RSpecRails/HttpStatus: { Enabled: false }
+
+# Nit-picky while not providing actual value
+RSpecRails/NegationBeValid: { Enabled: false }

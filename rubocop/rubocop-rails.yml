@@ -1,0 +1,68 @@
+# rubocop-rails
+
+# Add the unconventional staging environment to avoid false positives
+Rails/UnknownEnv: { Environments: [development, test, production, staging] }
+
+Rails/I18nLocaleTexts: { Enabled: true, Exclude: [app/controllers/admin/**/*] }
+Rails/TimeZoneAssignment: { Enabled: true, Exclude: [spec/spec_helper.rb] }
+
+# Below: disabled since daunting to apply but potentially good ideas that should be re-visited
+
+# Maybe good idea for some cases, lots of offences, how to proceed?
+Rails/Date: { Enabled: false }
+# Maybe good idea for some cases, lots of offences, how to proceed?
+Rails/TimeZone: { Enabled: false }
+# Good idea for most cases, lots of offences, how to proceed?
+Rails/SkipsModelValidations: { Enabled: false }
+# Great idea, lots of offenses, how to proceed?
+Rails/HelperInstanceVariable: { Enabled: false }
+# Good idea where applicable but quite a few false positives where we don't have an inverse defined
+Rails/InverseOf: { Enabled: false }
+
+# The cops below are disabled due to disagreements or incompatabilities with our code-base
+
+# We've already stopped using update_attributes for ActiveRecord, remaining usage is from Salesforce gem
+Rails/ActiveRecordAliases: { Enabled: false }
+# Our ApplicationController is so bloated that we have legit use-cases to avoid subclassing it
+Rails/ApplicationController: { Enabled: false }
+# Method missing based find_by_xxx methods are actually more performance friendly since JIT-compiled
+Rails/DynamicFindBy: { Enabled: false }
+# Though it can make code more compact it makes code-navigation and grepping for methods harder
+Rails/Delegate: { Enabled: false }
+# Though a few violations are bad, "#{Rails.root}/foo" is more succinct than Rails.root.join("foo")
+Rails/FilePath: { Enabled: false }
+# Though reasonable on a new code base we have too many violations for application to be feasible
+Rails/HasAndBelongsToMany: { Enabled: false }
+# Though often true, there are situations where it's fine so human review can catch this instead
+Rails/HasManyOrHasOneDependent: { Enabled: false }
+# Arguably better idea to learn HTTP codes instead of trying to remember the Rails abstractions
+Rails/HttpStatus: { Enabled: false }
+# Adding rel="noopener" is done by default in modern browsers so no need to bother
+Rails/LinkToBlank: { Enabled: false }
+# We have a lot of offences but all of them legit (eg. used in seeds / rake tasks etc)
+Rails/Output: { Enabled: false }
+# Using .html_safe implies we're certain that the HTML is safe and take responsibility for the content
+Rails/OutputSafety: { Enabled: false }
+# Loading the rails environment is dog slow so avoiding loading it when possible is a good idea
+Rails/RakeEnvironment: { Enabled: false }
+# It's debatable whether the new validations API is an improvement and we mostly use the classic API
+Rails/Validation: { Enabled: false }
+# Disabled due to false positives with version 2.11 of rubocop-rails, can reenable with 2.12 or above
+Rails/ContentTag: { Enabled: false }
+
+# Post 2.0 cop disablers
+
+# Design for grepability
+Rails/I18nLazyLookup: { Enabled: false }
+# Annoying to use in specs and not violated outside of specs
+Rails/I18nLocaleAssignment: { Enabled: false }
+# Unclear motivation for this cop
+Rails/Inquiry: { Enabled: false }
+# May improve logs but bloats the code
+Rails/SquishedSQLHeredocs: { Enabled: false }
+# Great cop but may cause violations in PR's which are not related to the diff
+Rails/UnusedIgnoredColumns: { Enabled: false }
+# .exist?(...) is not always more readable than .where(...).exists?
+Rails/WhereExists: { Enabled: false }
+# No autofix and not always more readable
+Rails/WhereNotWithMultipleConditions: { Enabled: false }
