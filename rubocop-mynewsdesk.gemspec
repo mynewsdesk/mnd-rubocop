@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name = "rubocop-mynewsdesk"
-  spec.version = "1.75.2" # matches the currenrtly used rubocop version
+  spec.version = "1.75.5" # matches the currently used rubocop version
   spec.authors = ["David Backeus"]
   spec.email = ["david.backeus@mynewsdesk.com"]
   spec.summary = "Everything needed to run rubocop in a mynewsdesk project"
@@ -20,10 +20,10 @@ Gem::Specification.new do |spec|
     rubocop/rubocop-rspec_rails.yml
   ]
 
-  spec.add_dependency "rubocop", "~> 1.75.2"
-  spec.add_dependency "rubocop-rails", "~> 2.31.0"
-  spec.add_dependency "rubocop-rspec", "~> 3.5.0"
-  spec.add_dependency "rubocop-rspec_rails", "~> 2.31.0"
+  spec.add_dependency "rubocop", "1.75.5"
+  spec.add_dependency "rubocop-rails", "2.31.0"
+  spec.add_dependency "rubocop-rspec", "3.6.0"
+  spec.add_dependency "rubocop-rspec_rails", "2.31.0"
 
   spec.required_ruby_version = ">= 3.4.2"
 end
