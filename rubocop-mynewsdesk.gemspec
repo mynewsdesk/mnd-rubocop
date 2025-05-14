@@ -25,5 +25,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency "rubocop-rspec", "3.6.0"
   spec.add_dependency "rubocop-rspec_rails", "2.31.0"
 
-  spec.required_ruby_version = ">= 3.4.2"
+  spec.required_ruby_version = ">= 3.1.0" # mnd-events-api is still on old Ruby
 end
