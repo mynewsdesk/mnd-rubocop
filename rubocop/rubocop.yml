@@ -109,3 +109,6 @@ Style/SafeNavigationChainLength: { Enabled: false }
 
 # Why make this particular method invocation different from others?
 Style/SuperWithArgsParentheses: { Enabled: false }
+
+# For root classes we would prefer class_keyword, for nested classes we would prefer class_new
+Style/EmptyClassDefinition: { Enabled: false }

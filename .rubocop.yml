@@ -6,7 +6,7 @@ plugins:
 AllCops:
   DisplayCopNames: true
   NewCops: enable
-  TargetRubyVersion: 3.4
+  TargetRubyVersion: 4.0
 
 inherit_from:
   - ./rubocop/rubocop.yml
